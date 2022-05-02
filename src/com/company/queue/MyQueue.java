@@ -22,6 +22,13 @@ public class MyQueue {
     }
 
     public static void main(String[] args) {
+        MyQueue queue = new MyQueue();
 
+        queue.enqueue();
+        queue.enqueue();
+        queue.enqueue();
+        queue.enqueue();
+
+        queue.dequeue();
     }
 }

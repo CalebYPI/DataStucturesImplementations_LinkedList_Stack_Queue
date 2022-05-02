@@ -2,6 +2,8 @@ package com.company.linkedList;
 
 import com.company.Node;
 
+import java.util.Arrays;
+
 public class MyLinkedList {
     static Node head;
 
@@ -9,6 +11,7 @@ public class MyLinkedList {
         Node n = new Node(d);
         if (head == null) {
             head = new Node(d);
+            return;
         }
         n.next = null;
         Node last = head;
@@ -17,14 +20,24 @@ public class MyLinkedList {
         last.next = n;
     }
 
-    public static void push(int data) {
-        Node nNode = new Node(data);
-        nNode.next = head;
-        head = nNode;
-    }
+    public void detachNode(int value) {
+        Node t = head;
+        Node prev = null;
 
-    public void detachNode() {
+        if (t != null && t.data == value) {
+            head = t.next;
+            return;
+        }
 
+        while (t != null && t.data != value) {
+            prev = t;
+            t = t.next;
+        }
+
+        if (t == null)
+            return;
+
+        prev.next = t.next;
     }
 
     public void display() {
@@ -36,6 +49,20 @@ public class MyLinkedList {
     }
 
     public static void main(String[] args) {
+        MyLinkedList list = new MyLinkedList();
 
+        list.append(5);
+        list.append(87);
+        list.append(135);
+        list.append(65);
+
+        System.out.println("\nList contents: ");
+        list.display();
+
+        System.out.println("\nRemoving Node of value 5");
+        list.detachNode(5);
+
+        System.out.println("\nNew contents of list: ");
+        list.display();
     }
 }
