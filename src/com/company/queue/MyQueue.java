@@ -1,34 +1,25 @@
 package com.company.queue;
 
-import com.company.Node;
+import com.company.linkedList.Node;
 
 public class MyQueue {
-    static Node head;
 
-    public void enqueue() {
-
-    }
-
-    public void dequeue() {
+    public void enQueue() {
 
     }
 
-    public void display() {
-        Node n = head;
-        while ( n!= null) {
-            System.out.print(n.data + " ");
-            n = n.next;
-        }
+    public void deQueue() {
+
     }
 
     public static void main(String[] args) {
         MyQueue queue = new MyQueue();
 
-        queue.enqueue();
-        queue.enqueue();
-        queue.enqueue();
-        queue.enqueue();
+        queue.enQueue();
+        queue.enQueue();
+        queue.enQueue();
+        queue.enQueue();
 
-        queue.dequeue();
+        queue.deQueue();
     }
 }

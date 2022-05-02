@@ -1,31 +1,35 @@
 package com.company.stack;
 
-import com.company.Node;
+import com.company.linkedList.Node;
 
 import java.util.Arrays;
 
 public class MyStack {
-    static Node head;
+    private int topValue;
+    private final int[] data;
 
-    public void push(int data) {
-        Node nNode = new Node(data);
-        nNode.next = head;
-        head = nNode;
+    public MyStack() {
+        topValue = -1;
+        data = new int[7];
     }
 
-    public void pop() {
-
+    public void push(int d) {
+        topValue += 1;
+        data[topValue] = d;
     }
 
-    public void display() {
-        Node n = head;
-        while ( n!= null) {
-            System.out.print(n.data + " ");
-            n = n.next;
-        }
+    public int pop() {
+        int v = data[topValue];
+        topValue -= 1;
+        return v;
+    }
+
+    public int showTop() {
+        return data[topValue];
     }
 
     public static void main(String[] args) {
+        String sufx = " was popped";
         MyStack stack = new MyStack();
 
         stack.push(3);
@@ -33,12 +37,8 @@ public class MyStack {
         stack.push(945);
         stack.push(25);
 
-        System.out.println("\nStack contents: ");
-        stack.display();
-
-        stack.pop();
-
-        System.out.println("\nContents of stack after pop: ");
-        stack.display();
+        System.out.println(stack.pop() + sufx);
+        System.out.println(stack.pop() + sufx);
+        System.out.println(stack.showTop() + " is the top value");
     }
 }

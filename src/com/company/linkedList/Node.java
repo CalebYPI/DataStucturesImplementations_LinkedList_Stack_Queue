@@ -1,4 +1,4 @@
-package com.company;
+package com.company.linkedList;
 
 public class Node {
     public int data;
