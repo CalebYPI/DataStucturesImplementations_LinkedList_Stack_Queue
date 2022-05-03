@@ -1,7 +1,5 @@
 package com.company.queue;
 
-import com.company.linkedList.Node;
-
 public class MyQueue {
 
     public void enQueue() {

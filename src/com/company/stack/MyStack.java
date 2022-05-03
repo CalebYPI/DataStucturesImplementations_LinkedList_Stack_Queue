@@ -1,9 +1,5 @@
 package com.company.stack;
 
-import com.company.linkedList.Node;
-
-import java.util.Arrays;
-
 public class MyStack {
     private int topValue;
     private final int[] data;
