@@ -1,23 +1,36 @@
 package com.company.queue;
 
 public class MyQueue {
-    private int lValue;
-    private int[] data;
+    int front;
+    int tail;
+    int[] data;
+    int size;
 
     public MyQueue() {
-        lValue = -1;
         data = new int[5];
     }
 
     public void enQueue(int d) {
-        //
+        data[tail] = d;
+        tail++;
+        size++;
     }
 
-    public void deQueue() {
-        //
+    public int deQueue() {
+        int v = data[front];
+        front++;
+        size--;
+        return v;
+    }
+
+    public void display() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(data[front+i]);
+        }
     }
 
     public static void main(String[] args) {
+        String sfx = " left the queue\n";
         MyQueue queue = new MyQueue();
 
         queue.enQueue(6);
@@ -25,6 +38,10 @@ public class MyQueue {
         queue.enQueue(8);
         queue.enQueue(9);
 
-        queue.deQueue();
+        queue.display();
+
+        System.out.println("\n" +queue.deQueue() + sfx);
+
+        queue.display();
     }
 }
